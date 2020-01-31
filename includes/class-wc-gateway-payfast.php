@@ -1070,7 +1070,7 @@ class WC_Gateway_PayFast extends WC_Payment_Gateway {
 		// when not sorting passphrase should be added to the end before md5
 		if ( $sort_data_before_merge ) {
 			$parameter_string = rtrim( $parameter_string, '&' );
-		} elseif ( ! empty( $this->pass_phrase ) ) {
+		} elseif ( ! empty( $this->pass_phrase ) && ($this->get_option( 'testmode' ) != 'yes') ) {
 			$parameter_string .= 'passphrase=' . urlencode( $this->pass_phrase );
 		} else {
 			$parameter_string = rtrim( $parameter_string, '&' );
